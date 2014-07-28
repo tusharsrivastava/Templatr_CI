@@ -1,6 +1,6 @@
 Templatr_CI
 ==========
-A Library for CodeIgniter to use templates easily and fast with less coding.
+A Templating Library for CodeIgniter to use templates easily and fast with less coding.
 Usage
 -------
 To use the library, copy the _Templatr_CI.php_ file to `application/libraries/` directory of CodeIgniter.
