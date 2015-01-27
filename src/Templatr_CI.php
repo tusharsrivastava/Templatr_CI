@@ -125,7 +125,7 @@
 				// We will check if the file exits and also, if $template is not set to 0 (remember ?)
 				// Ok, let me repeat. If the template name is set to 0 we are not using that block in the
 				// template, so we can delibrately set a block name to 0 thus making this engine flexible ;-)
-				if(file_exists(realpath(APPPATH . 'views/' . $this->template_dir . $template)) || $template!='0')
+				if(file_exists(realpath(APPPATH . 'views/' . $this->template_dir . $template)) || $template=='0')
 				{
 					if ($template != '0')
 					{
