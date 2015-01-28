@@ -92,7 +92,7 @@
 	public function define_template_dir($dir)
 	{
 		// Add the directory's name
-		$this->template_dir = $dir;
+		$this->template_dir = rtrim($dir,'/') . '/';
 	}
 
 	// This is the main method you will be using almost... always ;-)
@@ -108,7 +108,7 @@
 		// We are adding '.php' at the end of the filename after removing .php from the name, it is required
 		// 'cause with this method we can be dead sure that the filename has only one '.php' extension either
 		// it's passed in the '$view_template' or not (making it flexible) 
-		$this->view_template = rtrim($view_template, '.php') . '.php';
+		$this->view_template = basename($view_template, '.php') . '.php';
 
 		// If the $use_template is set (it's set by default)
 		if($use_template)
