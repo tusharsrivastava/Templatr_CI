@@ -1,6 +1,6 @@
 <?php
 /*
- * Filename : Templatr_CI.php
+ * Filename : templatr_ci.php
  * Author : Tushar Srivastava (tusharsrivastava)
  *------------------------ DESCRIPTION ---------------------------------
  * "Templatr_CI" is a library for CodeIgniter which is used to 
