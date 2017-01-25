@@ -9,7 +9,7 @@
  * You will have a file which is used as the content file which will be
  * different for each page but the header, footer and navbar etc... will
  * be a single file which is used by "Templatr_CI" to generate the final
- * file.
+ * view.
  * ---------------------------------------------------------------------
  * Dependencies: CodeIgniter - Obviously since it's a CI library ;-) 
  */
