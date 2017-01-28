@@ -85,6 +85,8 @@
 				}
 			}
 		}
+		// Fix the Trailing Slash Issue
+		$this->template_dir = rtrim($this->template_dir,'/') . '/';
 	}
 
 	// An interesting hack here ;-) , if you have all the file's name same and you have multiple templates
