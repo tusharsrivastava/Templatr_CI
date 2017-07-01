@@ -8,7 +8,7 @@ Now, to use the _Templatr_CI_ globally, I recommend using the following method.
 ### 1. Add the configs to `config.php` file.
 ```php
 // Add the file names that you are using for the header, footer, sidebar and navbar
-// templates. Must add the extension .php
+// templates. Optional: Add the extension .php
 $templatr_config['header_file'] = 'my_header.php';
 $templatr_config['footer_file'] = 'my_footer.php';
 $templatr_config['sidebar_file'] = 'my_sidebar.php';
