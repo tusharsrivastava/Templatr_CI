@@ -38,3 +38,14 @@ class Example_Controller extends CI_Controller
     }
 }
 ```
+Another example that uses some parameter to be passed in view as offred by CI base View class
+```php
+class Example_Controller extends CI_Controller
+{
+    public function index() 
+    {
+        $data_array = array('title'=>'My Title');
+        $this->templatr_ci->view('home', $data_array);
+    }
+}
+```
