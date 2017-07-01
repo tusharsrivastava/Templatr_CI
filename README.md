@@ -85,7 +85,7 @@ class Example_Controller extends CI_Controller
     public function index()
     {
         // The first parameter is view, second parameter is array and third 
-		// parameter controls if we want to use template or not
+        // parameter controls if we want to use template or not
         $this->templatr_ci->view('home', null, false);
     }
 }
