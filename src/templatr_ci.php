@@ -21,7 +21,7 @@
 	private $CI;
 
 	// Required Variables (These variables are set in either config file
-        // can be passed directly in an array if required)
+    // can be passed directly in an array if required)
 
 	// This variable "$template_dir" contains the directory name where the template is stored
 	// the directory must be located in "application/views/" directory of CodeIgniter
@@ -46,8 +46,8 @@
 	var $view_template = '';
 
 	// The way "Templatr_CI" work is, it gets a list of filenames and then 
-        // arrange them in a order that you can specify. This makes the "Templatr_CI"
-        // a very powerful Templating library.
+    // arrange them in a order that you can specify. This makes the "Templatr_CI"
+    // a very powerful Templating library.
 	var $priority = array('header','nav','sidebar','content','footer'); 
 
 	// The Constructor of the library class
@@ -89,6 +89,18 @@
 		$this->template_dir = rtrim($this->template_dir,'/') . '/';
 	}
 
+	// The public interface to change priority
+	public function set_priority($priority = array('header','nav','sidebar','content','footer')) 
+	{
+		$this->priority = $priority;
+	}
+
+	// The public interface to get priority for backup or modification purposes
+	public function get_priority() 
+	{
+		return $this->priority;
+	}
+
 	// An interesting hack here ;-) , if you have all the file's name same and you have multiple templates
 	// just use this method to quickly change the template's directory. (How cool is that?)
 	public function define_template_dir($dir)
@@ -117,9 +129,9 @@
 		{
 			// We are getting into a loop with a incrementing counter
 			$next = 0;
-			// We will get the template from an internal method called, get_priority()
+			// We will get the template from an internal method called, get_priority_entry()
 			// pass in the current counter value and it returns the template file name
-			$template = $this->get_priority($next);
+			$template = $this->get_priority_entry($next);
 			// Get inside the do-while loop
 			do
 			{
@@ -145,9 +157,9 @@
 				// Then increment the counter (that's why I use do-while)
 				$next++;
 				// and get the next template
-				$template = $this->get_priority($next);
+				$template = $this->get_priority_entry($next);
 			}
-			while($template != -1); // The get_priority method returns a -1 when the loop finishes
+			while($template != -1); // The get_priority_entry method returns a -1 when the loop finishes
 		}
 		else
 		{
@@ -167,7 +179,7 @@
 
 	// This is a private method. It is used to get the next template file.
 	// It uses '$priority' data member to return the next template file.
-	private function get_priority($next)
+	private function get_priority_entry($next)
 	{
 		// We will first look if the index exists (I am using isset 'cause it's easy) ;-)
 		if(isset($this->priority[$next]))
