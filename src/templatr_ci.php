@@ -120,7 +120,6 @@
 			// We will get the template from an internal method called, get_priority()
 			// pass in the current counter value and it returns the template file name
 			$template = $this->get_priority($next);
-
 			// Get inside the do-while loop
 			do
 			{
@@ -133,8 +132,12 @@
 					{
 						$this->CI->load->view($this->template_dir . $template, $params);
 					}
-				}
-				else 
+				} elseif($template=='0' || file_exists(realpath(APPPATH . 'views/' . $template))) {
+					if ($template != '0')
+					{
+						$this->CI->load->view($template, $params);
+					}
+				} else 
 				{
 					// If the file not found (this can be thrown at any stage of the template, show 404
 					show_404();
@@ -173,18 +176,30 @@
 			switch($this->priority[$next])
 			{
 				case 'header':
-					return $this->header_file;
+					if ($this->header_file != null && $this->header_file != '') {
+						return basename($this->header_file, '.php') . '.php';
+					}
+					return 0;
 					break;
 				case 'nav':
-					return $this->nav_file;
+					if ($this->nav_file != null && $this->nav_file != '') {
+						return basename($this->nav_file, '.php') . '.php';
+					}
+					return 0;
 					break;
 				case 'sidebar':
-					return $this->sidebar_file;
+					if ($this->sidebar_file != null && $this->sidebar_file != '') {
+						return basename($this->sidebar_file, '.php') . '.php';
+					}
+					return 0;
 					break;
 				case 'content':
 					return $this->view_template;
 				case 'footer':
-					return $this->footer_file;
+					if ($this->footer_file != null && $this->footer_file != '') {
+						return basename($this->footer_file, '.php') . '.php';
+					}
+					return 0;
 					break;
 				default:
 					return -1;
